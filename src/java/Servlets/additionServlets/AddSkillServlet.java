@@ -2,20 +2,28 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package Servlets.additionServlets;
 
+import ComponentLists.RuleSetList;
+import ComponentLists.SkillList;
+import Components.RuleSet;
+import Components.Skill;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
-public class AddClassSkillServlet extends HttpServlet {
+public class AddSkillServlet extends HttpServlet {
+
+    private SkillList skillList = new SkillList();
+    private RuleSetList rsetlist = new RuleSetList();
 
     /**
      * Processes requests for both HTTP
@@ -29,10 +37,32 @@ public class AddClassSkillServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession();
+        String name = request.getParameter("skillName");
+        String ruleset = request.getParameter("rset");
+
+        RuleSet rset = null;
+        for (int n = 0; n < rsetlist.getRuleSets().size(); n++) {
+            if (rsetlist.getRuleSets().get(n).getName().equals(ruleset)) {
+                rset = rsetlist.getRuleSets().get(n);
+            }
+        }
+
+        boolean doesSkillExist = false;
+        for (int k = 0; k < skillList.getSkills().size(); k++) {
+            if (skillList.getSkills().get(k).getName().equals(name)) {
+                doesSkillExist = true;
+                break;
+            }
+        }
+        if (!doesSkillExist && rset != null && session.getAttribute("logged") != null) {
+            skillList.addSkill(new Skill(name, rset));
+        }
+
+        request.getRequestDispatcher("/AddNewSkill").forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.

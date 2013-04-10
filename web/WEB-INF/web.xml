@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>AddRaceServlet</servlet-name>
-        <servlet-class>Servlets.AddRaceServlet</servlet-class>
+        <servlet-class>Servlets.additionServlets.AddRaceServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddNewRuleSet</servlet-name>
@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>AddRuleSet</servlet-name>
-        <servlet-class>Servlets.AddRuleSet</servlet-class>
+        <servlet-class>Servlets.additionServlets.AddRuleSet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddNewSkillServlet</servlet-name>
@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>AddSkillServlet</servlet-name>
-        <servlet-class>Servlets.AddSkillServlet</servlet-class>
+        <servlet-class>Servlets.additionServlets.AddSkillServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CreateCharServlet</servlet-name>
@@ -46,11 +46,11 @@
     </servlet>
     <servlet>
         <servlet-name>AddClassServlet</servlet-name>
-        <servlet-class>Servlets.AddClassServlet</servlet-class>
+        <servlet-class>Servlets.additionServlets.AddClassServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddClassSkillServlet</servlet-name>
-        <servlet-class>Servlets.AddClassSkillServlet</servlet-class>
+        <servlet-class>Servlets.additionServlets.AddClassSkillServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>

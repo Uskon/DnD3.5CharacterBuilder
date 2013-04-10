@@ -25,7 +25,7 @@ public class ClassProgress implements Serializable {
     private long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @Column
     private int BAB;
     @Column
@@ -46,7 +46,7 @@ public class ClassProgress implements Serializable {
     private int lvl;
 
     public ClassProgress(CClass c, int BAB, int casterLevel, int hitDice, int fortSave, int willSave, int reflSave, int skillPoints, int level) {
-        this.c = c;
+        this.cclass = c;
         this.BAB = BAB;
         this.casterLevel = casterLevel;
         this.hitDice = hitDice;
@@ -65,11 +65,11 @@ public class ClassProgress implements Serializable {
     }
 
     public CClass getC() {
-        return c;
+        return cclass;
     }
 
     public void setC(CClass c) {
-        this.c = c;
+        this.cclass = c;
     }
 
     public int getBAB() {

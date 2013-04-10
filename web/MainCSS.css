@@ -6,7 +6,39 @@
         Purpose of the stylesheet follows.
 */
 
+h1 {padding-top:0.5em;}
+
+.inputfield {
+    clear:both;
+    width:350px;
+}
+
+.inputbox {background-color:#FFFFF0;}
+
+table {background-color:#FFFFF0;}
+
+body {
+    margin-left:10px;
+    background-color:#F0E68C;
+}
+
+input {float:right}
+
+.rbutton {float:left}
+
+nav {
+    background-color:white;
+    border-style:inset;
+    clear:both;
+    position:absolute;
+    left:0;
+    top:0;
+    right:40%;
+    padding:0.4em;
+}
+
 root { 
     display: block;
+
 }
 

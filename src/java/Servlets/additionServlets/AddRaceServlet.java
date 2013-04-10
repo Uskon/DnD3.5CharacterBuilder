@@ -2,27 +2,29 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package Servlets.additionServlets;
 
-import ComponentLists.CClassList;
+import Components.Race;
+import ComponentLists.RaceList;
 import ComponentLists.RuleSetList;
-import Components.CClass;
 import Components.RuleSet;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
-public class AddClassServlet extends HttpServlet {
-    private CClassList clist = new CClassList(); 
+public class AddRaceServlet extends HttpServlet {
+    private RaceList raceList = new RaceList();
     private RuleSetList rsetlist = new RuleSetList();
-            
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -35,26 +37,30 @@ public class AddClassServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("className");
-        String ruleset = request.getParameter("rset");
+        HttpSession session = request.getSession();
+        String raceName = request.getParameter("raceName");
+        String abonus = request.getParameter("abonus");
+        String rdesc = request.getParameter("rdescription");
+        String ruleset = request.getParameter("rset");       
         RuleSet rset = null;
         for (int n = 0; n < rsetlist.getRuleSets().size(); n++) {
             if (rsetlist.getRuleSets().get(n).getName().equals(ruleset)) {
                 rset = rsetlist.getRuleSets().get(n);
             }
         }
-        boolean doesClassExist = false;
-        for (CClass c : clist.getClasses()) {
-            if (c.getName().equals(name) && c.getRuleSet()==rset) {
-                doesClassExist = true;
-            } 
+
+        boolean doesRaceExist = false;
+        for (int k = 0; k < raceList.getRaces().size(); k++) {
+            if (raceList.getRaces().get(k).getRaceName().equals(raceName)) {
+                doesRaceExist = true;
+            }
         }
-        
-        if (rset != null && !doesClassExist) {
-        clist.addClass(new CClass(name, rset));
+        if (!doesRaceExist && rset != null && session.getAttribute("logged") != null) {
+            Race race = new Race(raceName, abonus, rdesc, rset);
+            raceList.addRace(race);
         }
-        
-        request.getRequestDispatcher("/AddNewClass").forward(request, response);
+
+        request.getRequestDispatcher("/AddNewRace").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

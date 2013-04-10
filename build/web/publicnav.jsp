@@ -1,17 +1,11 @@
-<%-- 
-    Document   : publicnav
-    Created on : Apr 2, 2013, 6:00:28 PM
-    Author     : Uskon
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<nav>
+    <%
+    if (session.getAttribute("logged") == null) {
+    %>
+    <a href="Login.jsp" style="float:right">Login</a>
+    <%} else {%>
+    
+    <a href="Logout.jsp" style="float:right;">Logout</a>
+    <%}%>
+    <a href=""></a>
+</nav>

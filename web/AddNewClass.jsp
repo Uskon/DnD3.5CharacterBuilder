@@ -11,16 +11,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="MainCSS.css">
+        <%@ include file="adminnav.jsp" %>
+        <%@ include file="loginchecker.jsp" %>
     </head>
     <body>
-        <form name="newClass"
-              action="${pageContext.request.contextPath}/AddClass"
-              method="post">
-            Class Name: <input id="field1" type="text" name="className"/> <br/>
-            Source: <input type="text" name="rset"/> <br/>
-            <input type="submit" value="Send"/>
-        </form>
-              <h2>Existing Classes:</h2>
+        <h1>Input the information for the class to be added</h1>
+        <div class="inputfield">
+            <fieldset class="inputbox">
+                <form name="newClass"
+                      action="${pageContext.request.contextPath}/AddClass"
+                      method="post">
+                    Class Name: <input type="text" name="className"/><br>
+                    <br>Source: <input type="text" name="rset"/> <br>
+                    <br><input type="submit" value="Send"/>
+                </form>
+            </fieldset>
+        </div>      
+        <h2>Existing Classes:</h2>
         <table border ="1">     
             <tr>
                 <th>Class Name</th>

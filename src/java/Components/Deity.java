@@ -27,13 +27,17 @@ public class Deity implements Serializable {
     private String name;
     @Column
     private Alignment alignment;
+    @JoinColumn
+    @ManyToOne
+    private RuleSet ruleSet;
 
     public Deity() {
     }
 
-    public Deity(String name, Alignment alignment) {
+    public Deity(String name, Alignment alignment, RuleSet rset) {
         this.name = name;
         this.alignment = alignment;
+        this.ruleSet = rset;
     }
 
     public long getId() {

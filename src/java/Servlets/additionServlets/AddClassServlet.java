@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package Servlets.additionServlets;
 
+import ComponentLists.CClassList;
 import ComponentLists.RuleSetList;
+import Components.CClass;
 import Components.RuleSet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +14,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
-public class AddRuleSet extends HttpServlet {
-
+public class AddClassServlet extends HttpServlet {
+    private CClassList clist = new CClassList(); 
     private RuleSetList rsetlist = new RuleSetList();
             
     /**
@@ -33,20 +36,27 @@ public class AddRuleSet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("rsetName");
-        
-        boolean doesRuleSetExist = false;
-        for (int k = 0; k < rsetlist.getRuleSets().size(); k++) {
-            if (rsetlist.getRuleSets().get(k).getName().equals(name)) {
-                doesRuleSetExist = true;
-                break;
+        HttpSession session = request.getSession();
+        String name = request.getParameter("className");
+        String ruleset = request.getParameter("rset");
+        RuleSet rset = null;
+        for (int n = 0; n < rsetlist.getRuleSets().size(); n++) {
+            if (rsetlist.getRuleSets().get(n).getName().equals(ruleset)) {
+                rset = rsetlist.getRuleSets().get(n);
             }
         }
-        if (!doesRuleSetExist) {
-            rsetlist.addRuleSet(new RuleSet(name));
+        boolean doesClassExist = false;
+        for (CClass c : clist.getClasses()) {
+            if (c.getName().equals(name) && c.getRuleSet()==rset) {
+                doesClassExist = true;
+            } 
         }
         
-        request.getRequestDispatcher("/AddNewRuleSet").forward(request, response);
+        if (rset != null && !doesClassExist && session.getAttribute("logged") != null) {
+        clist.addClass(new CClass(name, rset));
+        }
+        
+        request.getRequestDispatcher("/AddNewClass").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

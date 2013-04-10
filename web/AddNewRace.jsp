@@ -10,19 +10,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Race Manager</title>
+        <link rel="stylesheet" type="text/css" href="MainCSS.css">
+        <%@ include file="adminnav.jsp" %>
+        <%@ include file="loginchecker.jsp" %>
     </head>
     <body>
         <h1>Input the information for the race to be added</h1>
-        
+        <div class="inputfield">
+            <fieldset class="inputbox">
         <form name="newRace"
               action="${pageContext.request.contextPath}/AddRace"
               method="post">
             Race Name: <input id="field1" type="text" name="raceName"/> <br/>
-            Attribute Bonuses: <input id="field2" type="text" name="abonus"/> <br/>
-            Race Description: <input type="text" name="rdescription"/> <br/>
-            Rule Set: <input id="field4" type="text" name="rset"/> <br/>
-            <input type="submit" onclick="checkInput()" value="Send"/>
+            <br>Attribute Bonuses: <input id="field2" type="text" name="abonus"/> <br/>
+            <br>Race Description: <input type="text" name="rdescription"/> <br/>
+            <br>Rule Set: <input id="field4" type="text" name="rset"/> <br/>
+            <br><input type="submit" onclick="checkInput()" value="Send"/>
         </form>
+            </fieldset>
+        </div>
 
         <h2>Existing races:</h2>
 

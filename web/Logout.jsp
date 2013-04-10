@@ -9,9 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Logging out</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            session.removeAttribute("username");
+            session.removeAttribute("password");
+            session.invalidate();
+        %>
+        
+        <p>Successfully logged out.</p>
+
+        <%
+            response.sendRedirect("index.jsp");
+        %>
     </body>
 </html>

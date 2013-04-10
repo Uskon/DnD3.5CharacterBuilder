@@ -25,6 +25,8 @@ public class Feat implements Serializable{
     @Column
     private String name;
     @Column
+    private String category;
+    @Column
     private boolean levelRequired;
     @Column
     private boolean raceRequired;
@@ -55,8 +57,9 @@ public class Feat implements Serializable{
     public Feat() {
     }
 
-    public Feat(String name, boolean levelRequired, boolean raceRequired, boolean classRequired, boolean attributeRequired, boolean alignmentRequired, boolean deityRequired, boolean skillRequired, boolean saveRequired, boolean BABRequired, boolean casterLevelRequired, boolean spellLevelRequired, boolean featRequired, RuleSet ruleSet) {
+    public Feat(String name, String category, boolean levelRequired, boolean raceRequired, boolean classRequired, boolean attributeRequired, boolean alignmentRequired, boolean deityRequired, boolean skillRequired, boolean saveRequired, boolean BABRequired, boolean casterLevelRequired, boolean spellLevelRequired, boolean featRequired, RuleSet ruleSet) {
         this.name = name;
+        this.category = category;
         this.levelRequired = levelRequired;
         this.raceRequired = raceRequired;
         this.classRequired = classRequired;

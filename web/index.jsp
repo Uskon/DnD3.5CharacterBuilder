@@ -10,11 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DnD 3.5 CharBuilder</title>
+        <link rel="stylesheet" type="text/css" href="MainCSS.css">
+        <%@ include file="publicnav.jsp" %>
     </head>
     <body>
-        <nav>
-            <a href="Login.jsp">Login</a>
-        </nav>
         <div id="container">
             <div id="header">
                 <h1>DnD 3.5 Character Builder</h1></div>
@@ -46,5 +45,5 @@
             }
         </script>
 
-</body>
+    </body>
 </html>
