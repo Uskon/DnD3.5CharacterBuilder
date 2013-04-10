@@ -16,10 +16,10 @@
     <class>Components.FeatRequirements.FeatFeatRequirement</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DnDBuilder"/>
-      <property name="javax.persistence.jdbc.password" value="Cybuster"/>
-      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.user" value="DM"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/hxvehmas"/>
+      <property name="javax.persistence.jdbc.password" value="3d71ec9d601cd433"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="hxvehmas"/>
       <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
