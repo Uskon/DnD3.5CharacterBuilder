@@ -28,7 +28,7 @@ public class ClassAlignmentRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @Column
     private Alignment alignment;
 
@@ -36,16 +36,16 @@ public class ClassAlignmentRequirement implements Serializable {
     }
 
     public ClassAlignmentRequirement(CClass c, Alignment alignment) {
-        this.c = c;
+        this.cclass = c;
         this.alignment = alignment;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
     public Alignment getAlignment() {

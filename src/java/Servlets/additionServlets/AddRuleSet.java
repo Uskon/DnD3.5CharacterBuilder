@@ -4,10 +4,9 @@
  */
 package Servlets.additionServlets;
 
-import ComponentLists.RuleSetList;
+import ComponentManager.EM;
 import Components.RuleSet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Tarkistaa syötteen ja hoitaa RuleSetin lisäystapahtuman.
  * @author Uskon
  */
 public class AddRuleSet extends HttpServlet {
 
-    private RuleSetList rsetlist = new RuleSetList();
-            
+    private EM em = new EM();
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -35,20 +34,32 @@ public class AddRuleSet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        if (session.getAttribute("logged") == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String name = request.getParameter("rsetName");
         String fullname = request.getParameter("rsetFullname");
-        
+
+        boolean nameIsCorrect = true;
+        if (!name.matches("[a-zA-Z0-9_]+")) {
+            nameIsCorrect = false;
+        }
+
         boolean doesRuleSetExist = false;
-        for (int k = 0; k < rsetlist.getRuleSets().size(); k++) {
-            if (rsetlist.getRuleSets().get(k).getName().equals(name)) {
+        for (int k = 0; k < em.getRuleSets().size(); k++) {
+            if (em.getRuleSets().get(k).getName().equals(name)) {
                 doesRuleSetExist = true;
                 break;
             }
         }
-        if (!doesRuleSetExist && session.getAttribute("logged") != null) {
-            rsetlist.addRuleSet(new RuleSet(name, fullname));
+        if (!doesRuleSetExist && session.getAttribute("logged") != null && nameIsCorrect && !fullname.equals("")) {
+            em.addToDatabase(new RuleSet(name, fullname));
+            request.setAttribute("inputSuccessful", true);
+        } else {
+            request.setAttribute("badInput", true);
         }
-        
+
         request.getRequestDispatcher("/AddNewRuleSet").forward(request, response);
     }
 

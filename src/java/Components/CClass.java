@@ -26,6 +26,8 @@ public class CClass implements Serializable {
     @Column
     private String name;
     @Column
+    private int maxlvl;
+    @Column
     private boolean classRequired = false;
     @Column
     private boolean raceRequired = false;
@@ -58,8 +60,9 @@ public class CClass implements Serializable {
         this.ruleSet = ruleSet;
     }
 
-    public CClass(String name, boolean classRequired, boolean raceRequired, boolean featRequired, boolean skillRequired, boolean attributeRequired, boolean saveRequired, boolean casterLevelRequired, boolean spellLevelRequired, boolean alignmentRequired, boolean deityRequired, boolean BABRequired, boolean levelRequired, RuleSet ruleSet) {
+    public CClass(String name, int maxlvl, RuleSet ruleSet, boolean classRequired, boolean raceRequired, boolean featRequired, boolean skillRequired, boolean attributeRequired, boolean saveRequired, boolean casterLevelRequired, boolean spellLevelRequired, boolean alignmentRequired, boolean deityRequired, boolean BABRequired, boolean levelRequired) {
         this.name = name;
+        this.maxlvl = maxlvl;
         this.classRequired = classRequired;
         this.raceRequired = raceRequired;
         this.featRequired = featRequired;
@@ -73,6 +76,14 @@ public class CClass implements Serializable {
         this.BABRequired = BABRequired;
         this.levelRequired = levelRequired;
         this.ruleSet = ruleSet;
+    }
+
+    public int getMaxlvl() {
+        return maxlvl;
+    }
+
+    public void setMaxlvl(int maxlvl) {
+        this.maxlvl = maxlvl;
     }
 
     

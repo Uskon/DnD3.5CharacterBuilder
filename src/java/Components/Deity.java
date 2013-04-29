@@ -48,6 +48,14 @@ public class Deity implements Serializable {
         return name;
     }
 
+    public RuleSet getRuleSet() {
+        return ruleSet;
+    }
+
+    public void setRuleSet(RuleSet ruleSet) {
+        this.ruleSet = ruleSet;
+    }
+
     public Alignment getAlignment() {
         return alignment;
     }

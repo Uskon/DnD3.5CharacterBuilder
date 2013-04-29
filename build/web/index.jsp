@@ -4,6 +4,7 @@
     Author     : Uskon
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,36 +15,49 @@
         <%@ include file="publicnav.jsp" %>
     </head>
     <body>
-        <div id="container">
-            <div id="header">
-                <h1>DnD 3.5 Character Builder</h1></div>
-            <div id="menu" style="width:15%;float:left;">
-                <b>Menu</b><br>
-                <button type="button" href="/createChar">Create a new Character</button><br>
+        <h1>DnD 3.5 Character Builder</h1>
+        <div class="bigdiv">
+            <div class="leftside">
+                <fieldset style="width:400px">
+                    <form action="${pageContext.request.contextPath}/SearchByName">
+                        <p style="float:left"><select name="type">
+                                <option value="Race">Race</option>
+                                <option value="Class">Class</option>
+                                <option value="Feat">Feat</option>
+                                <option value="Skill">Skill</option>
+                                <option value="Deity">Deity</option>
+                                <option value="Domain">Domain</option>
+                            </select></p>
+                        <p style="float:right">Name: <input type="text" name="name"></p><br><br><br>
+                        <input type="submit" value="Quick search" style="float:right">
+                    </form>
+                </fieldset>
                 <br>
-                <b>Browse:</b><br>
-                <button type="button" onclick="showDescription()">Races</button><br>
-                <button type="button" onclick="showDescription()">Classes</button><br>
-                <button type="button" onclick="showDescription()">Deities</button><br>
-                <button type="button" onclick="showDescription()">Feats</button><br>
-                <button type="button" onclick="showDescription()">Text here</button><br>
-                <br>
+                <% if (request.getAttribute("result") != null) {%>
+                <fieldset class="inputbox">
+                    <% if (request.getAttribute("badinput") != null) {%>
+                    <p>The name may not contain any special characters</p>
+                    <%}
+                        if (request.getAttribute("noresult") != null) {%>
+                    <p> No results </p>
+                    <%}%>
+                    <form action="${pageContext.request.contextPath}/ShowInfo">
+                        <c:forEach var="item" items="${result}">
+                            <input type="hidden" name="type" value="${type}">
+                            <p><button type="submit" class="submitlink" name="item" value="${item.id}">${item.name}, ${item.ruleSet.name}</button></p>
+                        </c:forEach>
+                    </form>
+                </fieldset>
             </div>
-
-            <div id="content" float:left>
-                <p id="content">
-                    Content descriptions to be added
-                </p>
+            <%}
+                    if (request.getAttribute("info") != null) {%>
+            <div class="info">
+                <fieldset class="inputbox">
+                    <p><b>Additional Information</b></p>
+                    <p>${info}</p>
+                </fieldset>
             </div>
+            <%}%>
         </div>
-
-        <script>
-            function showDescription()
-            {
-                x=document.getElementById("content");
-                x.innerHTML="Enter description here";
-            }
-        </script>
-
     </body>
 </html>

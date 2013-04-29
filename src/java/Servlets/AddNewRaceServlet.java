@@ -4,20 +4,22 @@
  */
 package Servlets;
 
-import ComponentLists.RaceList;
+import ComponentManager.EM;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
 public class AddNewRaceServlet extends HttpServlet {
+
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -31,11 +33,11 @@ public class AddNewRaceServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("raceList", new RaceList().getRaces());
-        
+        request.setAttribute("raceList", em.getRaces());
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("AddNewRace.jsp");
         dispatcher.forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -2,18 +2,6 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="DnDCharBuilderPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>Components.FeatRequirements.FeatLevelRequirement</class>
-    <class>Components.FeatRequirements.FeatClassRequirement</class>
-    <class>Components.FeatRequirements.FeatRaceRequirement</class>
-    <class>Components.FeatRequirements.FeatAttributeRequirement</class>
-    <class>Components.FeatRequirements.FeatSaveRequirement</class>
-    <class>Components.FeatRequirements.FeatAlignmentRequirement</class>
-    <class>Components.FeatRequirements.FeatDeityRequirement</class>
-    <class>Components.FeatRequirements.FeatSkillRequirement</class>
-    <class>Components.FeatRequirements.FeatBABRequirement</class>
-    <class>Components.FeatRequirements.FeatCasterLevelRequirement</class>
-    <class>Components.FeatRequirements.FeatSpellRequirement</class>
-    <class>Components.FeatRequirements.FeatFeatRequirement</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/hxvehmas"/>

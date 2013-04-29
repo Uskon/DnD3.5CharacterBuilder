@@ -2,7 +2,7 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>AddNewRaceServlet</servlet-name>
-        <servlet-class>Servlets.AddNewRaceServlet</servlet-class>
+        <servlet-class>Servlets.utility.AddNewRaceServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddRaceServlet</servlet-name>
@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>AddNewRuleSet</servlet-name>
-        <servlet-class>Servlets.AddNewRuleSet</servlet-class>
+        <servlet-class>Servlets.utility.AddNewRuleSet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddRuleSet</servlet-name>
@@ -18,31 +18,19 @@
     </servlet>
     <servlet>
         <servlet-name>AddNewSkillServlet</servlet-name>
-        <servlet-class>Servlets.AddNewSkillServlet</servlet-class>
+        <servlet-class>Servlets.utility.AddNewSkillServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddSkillServlet</servlet-name>
         <servlet-class>Servlets.additionServlets.AddSkillServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateCharServlet</servlet-name>
-        <servlet-class>Servlets.CharacterCreation.CreateCharServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SetNameServlet</servlet-name>
-        <servlet-class>Servlets.CharacterCreation.SetNameServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SetRaceServlet</servlet-name>
-        <servlet-class>Servlets.CharacterCreation.SetRaceServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddNewClassSkillServlet</servlet-name>
-        <servlet-class>Servlets.AddNewClassSkillServlet</servlet-class>
+        <servlet-class>Servlets.utility.AddNewClassSkillServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddNewClassServlet</servlet-name>
-        <servlet-class>Servlets.AddNewClassServlet</servlet-class>
+        <servlet-class>Servlets.utility.AddNewClassServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddClassServlet</servlet-name>
@@ -54,7 +42,227 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>Servlets.LoginServlet</servlet-class>
+        <servlet-class>Servlets.utility.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewFeatServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddFeatServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageClassesServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageClassesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForwarderServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageClassServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewClassFeatServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewClassFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddClassFeatServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddClassFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDescriptionServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SetClassProgressServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.SetClassProgressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddClassRequirementsServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddClassRequirementsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageFeatsServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageFeatsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageFeatServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddFeatRequirementsServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddFeatRequirementsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewDeityServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewDeityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDeityServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddDeityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewDomainServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDomainServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageDomainsServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageDomainsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageDomainServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewDomainFeatServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewDomainFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDomainFeatServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddDomainFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageDeitiesServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageDeitiesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageDeityServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageDeityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewDeityDomainServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewDeityDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDeityDomainServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddDeityDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmRemovalServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.ConfirmRemovalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchByNameServlet</servlet-name>
+        <servlet-class>Servlets.search.SearchByNameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFeatServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageSkillsServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageSkillsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageSkillServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageSkillServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageRacesServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageRacesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageRaceServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageRaceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageRuleSetsServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageRuleSetsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageRuleSetServlet</servlet-name>
+        <servlet-class>Servlets.managers.ManageRuleSetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveSkillServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveSkillServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveDeityServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveDeityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveDomainServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveRuleSetServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveRuleSetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveRaceServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveRaceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmRuleSetRemovalServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.ConfirmRuleSetRemovalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassRequirementServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassRequirementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFeatRequirementServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveFeatRequirementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassFeatServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassSkillServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassSkillServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveDomainFeatServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveDomainFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveDeityDomainServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveDeityDomainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassDescriptionServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFeatDescriptionServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveFeatDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveRaceDescriptionServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveRaceDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveClassProgressServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveClassProgressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewRacialFeatServlet</servlet-name>
+        <servlet-class>Servlets.utility.AddNewRacialFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddRacialFeatServlet</servlet-name>
+        <servlet-class>Servlets.additionServlets.AddRacialFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveRacialFeatServlet</servlet-name>
+        <servlet-class>Servlets.removalServlets.RemoveRacialFeatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowInfoServlet</servlet-name>
+        <servlet-class>Servlets.search.ShowInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddNewRaceServlet</servlet-name>
@@ -81,18 +289,6 @@
         <url-pattern>/AddSkill</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CreateCharServlet</servlet-name>
-        <url-pattern>/CreateChar</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SetNameServlet</servlet-name>
-        <url-pattern>/SetName</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SetRaceServlet</servlet-name>
-        <url-pattern>/SetRace</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AddNewClassSkillServlet</servlet-name>
         <url-pattern>/AddNewClassSkill</url-pattern>
     </servlet-mapping>
@@ -111,6 +307,226 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewFeatServlet</servlet-name>
+        <url-pattern>/AddNewFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFeatServlet</servlet-name>
+        <url-pattern>/AddFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageClassesServlet</servlet-name>
+        <url-pattern>/ManageClasses</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForwarderServlet</servlet-name>
+        <url-pattern>/Forwarder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageClassServlet</servlet-name>
+        <url-pattern>/ManageClass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewClassFeatServlet</servlet-name>
+        <url-pattern>/AddNewClassFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddClassFeatServlet</servlet-name>
+        <url-pattern>/AddClassFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDescriptionServlet</servlet-name>
+        <url-pattern>/AddDescription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SetClassProgressServlet</servlet-name>
+        <url-pattern>/SetClassProgress</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddClassRequirementsServlet</servlet-name>
+        <url-pattern>/AddClassRequirements</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageFeatsServlet</servlet-name>
+        <url-pattern>/ManageFeats</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageFeatServlet</servlet-name>
+        <url-pattern>/ManageFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFeatRequirementsServlet</servlet-name>
+        <url-pattern>/AddFeatRequirements</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewDeityServlet</servlet-name>
+        <url-pattern>/AddNewDeity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDeityServlet</servlet-name>
+        <url-pattern>/AddDeity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewDomainServlet</servlet-name>
+        <url-pattern>/AddNewDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDomainServlet</servlet-name>
+        <url-pattern>/AddDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageDomainsServlet</servlet-name>
+        <url-pattern>/ManageDomains</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageDomainServlet</servlet-name>
+        <url-pattern>/ManageDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewDomainFeatServlet</servlet-name>
+        <url-pattern>/AddNewDomainFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDomainFeatServlet</servlet-name>
+        <url-pattern>/AddDomainFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageDeitiesServlet</servlet-name>
+        <url-pattern>/ManageDeities</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageDeityServlet</servlet-name>
+        <url-pattern>/ManageDeity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewDeityDomainServlet</servlet-name>
+        <url-pattern>/AddNewDeityDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDeityDomainServlet</servlet-name>
+        <url-pattern>/AddDeityDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassServlet</servlet-name>
+        <url-pattern>/RemoveClass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmRemovalServlet</servlet-name>
+        <url-pattern>/ConfirmRemoval</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchByNameServlet</servlet-name>
+        <url-pattern>/SearchByName</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFeatServlet</servlet-name>
+        <url-pattern>/RemoveFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageSkillsServlet</servlet-name>
+        <url-pattern>/ManageSkills</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageSkillServlet</servlet-name>
+        <url-pattern>/ManageSkill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageRacesServlet</servlet-name>
+        <url-pattern>/ManageRaces</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageRaceServlet</servlet-name>
+        <url-pattern>/ManageRace</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageRuleSetsServlet</servlet-name>
+        <url-pattern>/ManageRuleSets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageRuleSetServlet</servlet-name>
+        <url-pattern>/ManageRuleSet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveSkillServlet</servlet-name>
+        <url-pattern>/RemoveSkill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveDeityServlet</servlet-name>
+        <url-pattern>/RemoveDeity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveDomainServlet</servlet-name>
+        <url-pattern>/RemoveDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveRuleSetServlet</servlet-name>
+        <url-pattern>/RemoveRuleSet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveRaceServlet</servlet-name>
+        <url-pattern>/RemoveRace</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmRuleSetRemovalServlet</servlet-name>
+        <url-pattern>/ConfirmRuleSetRemoval</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassRequirementServlet</servlet-name>
+        <url-pattern>/RemoveClassRequirement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFeatRequirementServlet</servlet-name>
+        <url-pattern>/RemoveFeatRequirement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassFeatServlet</servlet-name>
+        <url-pattern>/RemoveClassFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassSkillServlet</servlet-name>
+        <url-pattern>/RemoveClassSkill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveDomainFeatServlet</servlet-name>
+        <url-pattern>/RemoveDomainFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveDeityDomainServlet</servlet-name>
+        <url-pattern>/RemoveDeityDomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassDescriptionServlet</servlet-name>
+        <url-pattern>/RemoveClassDescription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFeatDescriptionServlet</servlet-name>
+        <url-pattern>/RemoveFeatDescription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveRaceDescriptionServlet</servlet-name>
+        <url-pattern>/RemoveRaceDescription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveClassProgressServlet</servlet-name>
+        <url-pattern>/RemoveClassProgress</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewRacialFeatServlet</servlet-name>
+        <url-pattern>/AddNewRacialFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddRacialFeatServlet</servlet-name>
+        <url-pattern>/AddRacialFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveRacialFeatServlet</servlet-name>
+        <url-pattern>/RemoveRacialFeat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowInfoServlet</servlet-name>
+        <url-pattern>/ShowInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

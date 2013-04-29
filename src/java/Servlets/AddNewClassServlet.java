@@ -4,19 +4,22 @@
  */
 package Servlets;
 
-import ComponentLists.CClassList;
+import ComponentManager.EM;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
 public class AddNewClassServlet extends HttpServlet {
+
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -30,8 +33,8 @@ public class AddNewClassServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("classlist", new CClassList().getClasses());
-        
+        request.setAttribute("classlist", em.getClasses());
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("AddNewClass.jsp");
         dispatcher.forward(request, response);
     }

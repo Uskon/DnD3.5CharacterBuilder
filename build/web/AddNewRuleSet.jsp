@@ -16,29 +16,42 @@
         <%@ include file="loginchecker.jsp" %>
     </head>
     <body>
-         <h1>Input the information for the rule set to be added</h1>
-        <div class="inputfield">
-            <fieldset class="inputbox">
-        <form name="newRuleSet"
-              action="${pageContext.request.contextPath}/AddRuleSet"
-              method="post">
-            Rule Set Abbreviation: <input id="field1" type="text" name="rsetName"/> <br/>
-            <br>Rule Set Name: <input type="text" name="rsetFullname"/><br>
-            <br><input type="submit" value="Send"/>
-        </form>
-            </fieldset>
+        <h1>Input the information for the Rule Set to be added</h1>
+        <div class="bigdiv">
+            <div class="leftside">
+                <div class="inputfield">
+                    <fieldset class="inputbox">
+                        <form name="newRuleSet"
+                              action="${pageContext.request.contextPath}/AddRuleSet"
+                              method="post">
+                            <p class="p1">Abbreviation: <input type="text" name="rsetName" class="textinput"/></p>
+                            <p>Rule Set Name: <input type="text" name="rsetFullname" class="textinput"/></p>
+                            <p><input type="submit" value="Send"/></p>
+                            <% if (request.getAttribute("inputSuccessful") != null) {%>
+                            <p>The Rule Set has been added successfully</p>
+                            <%}%>
+                            <% if (request.getAttribute("badInput") != null) {%>
+                            <b><p>Please use non-null values that do not already exist in the list below</p></b>
+                            <%}%>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="info">
+                <h2>Existing Rule Sets:</h2>
+                <table border ="1">     
+                    <tr>
+                        <th>Rule Set</th>
+                        <th>Full name</th>
+                    </tr>
+                    <c:forEach var="RuleSet" items="${rsetList}">
+                        <tr>
+                            <td>${RuleSet.name}</td>
+                            <td>${RuleSet.fullname}</td>
+                        </tr>
+                        </c:forEach>
+                </table>
+            </div>
         </div>
-              <h2>Existing Rule Sets:</h2>
-        <table border ="1">     
-            <tr>
-                <th>Rule Set</th>
-                <th>Full name</th>
-            </tr>
-            <c:forEach var="RuleSet" items="${rsetList}">
-                <tr>
-                    <td>${RuleSet.name}</td>
-                    <td>${RuleSet.fullname}</td>
-            </c:forEach>
-        </table>
     </body>
 </html>

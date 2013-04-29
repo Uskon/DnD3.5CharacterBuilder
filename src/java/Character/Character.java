@@ -4,7 +4,6 @@
  */
 package Character;
 
-import ComponentLists.SkillList;
 import Components.Alignment;
 import Components.Deity;
 import Components.Feat;
@@ -33,7 +32,7 @@ public class Character {
     private Deity deity;
     private HashMap<Skill, Integer> skills = new HashMap<Skill, Integer>();
     private ArrayList<Feat> feats = new ArrayList<Feat>();
-    private SkillList templist = new SkillList();
+    private ArrayList<Skill> templist = new ArrayList<Skill>();
     private int fort;
     private int will;
     private int refl;
@@ -81,10 +80,7 @@ public class Character {
     }
     
     public Character(String name) {
-        this.name = name;
-        for (Skill s : templist.getSkills()) {
-            skills.put(s, 0);
-        }
+
     }
 
     public String getName() {

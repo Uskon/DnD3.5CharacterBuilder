@@ -26,7 +26,7 @@ public class ClassRaceRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private Race race;
@@ -35,16 +35,16 @@ public class ClassRaceRequirement implements Serializable {
     }
 
     public ClassRaceRequirement(CClass c, Race race) {
-        this.c = c;
+        this.cclass = c;
         this.race = race;
     }
 
     public CClass getC() {
-        return c;
+        return cclass;
     }
 
     public void setC(CClass c) {
-        this.c = c;
+        this.cclass = c;
     }
 
 

@@ -30,7 +30,7 @@ public class FeatCasterLevelRequirement implements Serializable {
     private Feat feat;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @Column
     private int casterLvl;
 
@@ -39,7 +39,7 @@ public class FeatCasterLevelRequirement implements Serializable {
 
     public FeatCasterLevelRequirement(Feat feat, CClass c, int casterLvl) {
         this.feat = feat;
-        this.c = c;
+        this.cclass = c;
         this.casterLvl = casterLvl;
     }
 
@@ -51,12 +51,12 @@ public class FeatCasterLevelRequirement implements Serializable {
         this.feat = feat;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
     public void setC(CClass c) {
-        this.c = c;
+        this.cclass = c;
     }
 
     public int getCasterLvl() {

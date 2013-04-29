@@ -45,10 +45,11 @@ public class ClassProgress implements Serializable {
     @Column
     private int lvl;
 
-    public ClassProgress(CClass c, int BAB, int casterLevel, int hitDice, int fortSave, int willSave, int reflSave, int skillPoints, int level) {
+    public ClassProgress(CClass c, int BAB, int casterLevel, int spellLevel, int hitDice, int fortSave, int willSave, int reflSave, int skillPoints, int level) {
         this.cclass = c;
         this.BAB = BAB;
         this.casterLevel = casterLevel;
+        this.spellLevel = spellLevel;
         this.hitDice = hitDice;
         this.fortSave = fortSave;
         this.willSave = willSave;
@@ -64,11 +65,11 @@ public class ClassProgress implements Serializable {
         return id;
     }
 
-    public CClass getC() {
+    public CClass getCclass() {
         return cclass;
     }
 
-    public void setC(CClass c) {
+    public void setCclass(CClass c) {
         this.cclass = c;
     }
 
@@ -128,11 +129,11 @@ public class ClassProgress implements Serializable {
         this.skillPoints = skillPoints;
     }
 
-    public int getLevel() {
+    public int getLvl() {
         return lvl;
     }
 
-    public void setLevel(int level) {
+    public void setLvl(int level) {
         this.lvl = level;
     }
 

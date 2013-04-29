@@ -23,7 +23,7 @@ public class DomainFeat implements Serializable{
     private long id;
     @JoinColumn
     @ManyToOne
-    private Deity deity;
+    private DDomain domain;
     @JoinColumn
     @ManyToOne
     private Feat feat;
@@ -31,8 +31,8 @@ public class DomainFeat implements Serializable{
     public DomainFeat() {
     }
 
-    public DomainFeat(Deity deity, Feat feat) {
-        this.deity = deity;
+    public DomainFeat(DDomain domain, Feat feat) {
+        this.domain = domain;
         this.feat = feat;
     }
 
@@ -40,8 +40,8 @@ public class DomainFeat implements Serializable{
         return id;
     }
 
-    public Deity getDeity() {
-        return deity;
+    public DDomain getDomain() {
+        return domain;
     }
 
     public Feat getFeat() {

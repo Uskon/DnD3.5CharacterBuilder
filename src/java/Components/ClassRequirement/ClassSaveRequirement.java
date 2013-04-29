@@ -26,7 +26,7 @@ public class ClassSaveRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @Column
     private int fortSave;
     @Column
@@ -38,18 +38,18 @@ public class ClassSaveRequirement implements Serializable {
     }
 
     public ClassSaveRequirement(CClass c, int fortSave, int willSave, int reflSave) {
-        this.c = c;
+        this.cclass = c;
         this.fortSave = fortSave;
         this.willSave = willSave;
         this.reflSave = reflSave;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
 

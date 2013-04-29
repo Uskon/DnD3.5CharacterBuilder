@@ -4,25 +4,23 @@
  */
 package Servlets;
 
-import ComponentLists.CClassList;
-import ComponentLists.ClassSkillList;
-import ComponentLists.SkillList;
+import ComponentManager.EM;
+import Components.CClass;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Uskon
  */
 public class AddNewClassSkillServlet extends HttpServlet {
-    private CClassList classlist = new CClassList();
-    private SkillList skilllist = new SkillList();
-    private ClassSkillList cslist = new ClassSkillList();
+
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -36,10 +34,20 @@ public class AddNewClassSkillServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("classlist", classlist.getClasses());
-        request.setAttribute("skilllist", skilllist.getSkills());
-        request.setAttribute("cslist", cslist.getClassSkills());
-        
+        HttpSession session = request.getSession();
+        if (session.getAttribute("logged") == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
+        request.setAttribute("class", session.getAttribute("managedClass"));
+        String classid = (String) session.getAttribute("managedClass");
+        CClass cclass = em.getClassByID(classid);
+        request.setAttribute("class", cclass);
+        if (!em.getUnsetClassSkillsByClassID(classid).isEmpty()) {
+            request.setAttribute("skills", em.getUnsetClassSkillsByClassID(classid));
+        }
+        request.setAttribute("cskills", em.getClassSkillsByClassID(classid));
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("AddNewClassSkill.jsp");
         dispatcher.forward(request, response);
     }

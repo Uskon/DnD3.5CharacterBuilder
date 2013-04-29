@@ -12,7 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,7 +25,7 @@ public class FeatBABRequirement implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @JoinColumn
-    @ManyToOne
+    @OneToOne
     private Feat feat;
     @Column
     private int BAB;

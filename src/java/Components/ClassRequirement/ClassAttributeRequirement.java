@@ -28,7 +28,7 @@ public class ClassAttributeRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @Column
     private int STR;
     @Column
@@ -36,7 +36,7 @@ public class ClassAttributeRequirement implements Serializable {
     @Column
     private int CON;
     @Column
-    private int INT;
+    private int INTG;
     @Column
     private int WIS;
     @Column
@@ -46,21 +46,21 @@ public class ClassAttributeRequirement implements Serializable {
     }
 
     public ClassAttributeRequirement(CClass c, int STR, int DEX, int CON, int INT, int WIS, int CHA) {
-        this.c = c;
+        this.cclass = c;
         this.STR = STR;
         this.DEX = DEX;
         this.CON = CON;
-        this.INT = INT;
+        this.INTG = INT;
         this.WIS = WIS;
         this.CHA = CHA;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
     public int getSTR() {
@@ -87,12 +87,12 @@ public class ClassAttributeRequirement implements Serializable {
         this.CON = CON;
     }
 
-    public int getINT() {
-        return INT;
+    public int getINTG() {
+        return INTG;
     }
 
     public void setINT(int INT) {
-        this.INT = INT;
+        this.INTG = INT;
     }
 
     public int getWIS() {

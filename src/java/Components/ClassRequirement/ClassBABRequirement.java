@@ -12,7 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,8 +25,8 @@ public class ClassBABRequirement implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @JoinColumn
-    @ManyToOne
-    private CClass c;
+    @OneToOne
+    private CClass cclass;
     @Column
     private int BAB;
 
@@ -34,16 +34,16 @@ public class ClassBABRequirement implements Serializable {
     }
 
     public ClassBABRequirement(CClass c, int BAB) {
-        this.c = c;
+        this.cclass = c;
         this.BAB = BAB;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
 

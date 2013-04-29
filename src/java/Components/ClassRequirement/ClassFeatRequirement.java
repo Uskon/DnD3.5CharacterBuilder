@@ -26,7 +26,7 @@ public class ClassFeatRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private Feat requiredFeat;
@@ -35,16 +35,16 @@ public class ClassFeatRequirement implements Serializable {
     }
 
     public ClassFeatRequirement(CClass c, Feat requiredFeat) {
-        this.c = c;
+        this.cclass = c;
         this.requiredFeat = requiredFeat;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
 

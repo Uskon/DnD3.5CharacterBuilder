@@ -27,7 +27,7 @@ public class ClassDeityRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private Deity deity;
@@ -36,16 +36,16 @@ public class ClassDeityRequirement implements Serializable {
     }
 
     public ClassDeityRequirement(CClass c, Deity deity) {
-        this.c = c;
+        this.cclass = c;
         this.deity = deity;
     }
 
     public CClass getC() {
-        return c;
+        return cclass;
     }
 
     public void setC(CClass c) {
-        this.c = c;
+        this.cclass = c;
     }
 
     public Deity getDeity() {

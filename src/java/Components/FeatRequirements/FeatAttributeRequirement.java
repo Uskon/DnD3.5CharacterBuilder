@@ -34,7 +34,7 @@ public class FeatAttributeRequirement implements Serializable {
     @Column
     private int CON;
     @Column
-    private int INT;
+    private int INTG;
     @Column
     private int WIS;
     @Column
@@ -48,7 +48,7 @@ public class FeatAttributeRequirement implements Serializable {
         this.STR = STR;
         this.DEX = DEX;
         this.CON = CON;
-        this.INT = INT;
+        this.INTG = INT;
         this.WIS = WIS;
         this.CHA = CHA;
     }
@@ -86,11 +86,15 @@ public class FeatAttributeRequirement implements Serializable {
     }
 
     public int getINT() {
-        return INT;
+        return INTG;
+    }
+    
+    public int getINTG() {
+        return INTG;
     }
 
     public void setINT(int INT) {
-        this.INT = INT;
+        this.INTG = INT;
     }
 
     public int getWIS() {

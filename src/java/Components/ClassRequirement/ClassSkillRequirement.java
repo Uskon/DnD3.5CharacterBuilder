@@ -27,7 +27,7 @@ public class ClassSkillRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private Skill skill;
@@ -38,24 +38,28 @@ public class ClassSkillRequirement implements Serializable {
     }
 
     public ClassSkillRequirement(CClass c, Skill skill, int rank) {
-        this.c = c;
+        this.cclass = c;
         this.skill = skill;
         this.rank = rank;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
+    public Skill getRequiredSkill() {
+        return skill;
+    }
+    
     public Skill getSkill() {
         return skill;
     }
 
-    public void setSkill(Skill skill) {
+    public void setRequiredSkill(Skill skill) {
         this.skill = skill;
     }
 

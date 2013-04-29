@@ -1,0 +1,10 @@
+﻿Tehtäväkuvaus:
+
+Tarkoituksena on toteuttaa tietokantasovellus, joka mahdollistaa käytännössä kaikkien DnD3.5 säännöstön
+hahmonluonnin kannalta merkityksellisten komponenttien tallentamisen ja niiden välisten yhteyksien määrittelyn.
+
+Tietokantaan on tarkoitus pystyä lisäämään kaikki pääkomponenttityyppejä, sekä määrittää miten ne liittyvät toisiinsa.
+Lisäksi täytyy pystyä poistamaan sekä yksittäisiä yhteyksiä että kokonaisia komponenttikokonaisuuksia.
+
+Sovelluksen on tarkoitus toimia pohjana varsinaiselle DnD3.5 hahmobuilderille, missä on mahdollista kasata hahmo
+alusta alkaen käyttäen tietokantaan talletettuja komponentteja ja niiden välisiä yhteyksiä.

@@ -27,7 +27,7 @@ public class ClassClassRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private CClass requiredClass;
@@ -39,7 +39,7 @@ public class ClassClassRequirement implements Serializable {
 
     public ClassClassRequirement(CClass c, CClass requiredClass, int requiredLvl) {
         this.requiredClass = requiredClass;
-        this.c = c;
+        this.cclass = c;
         this.requiredLvl = requiredLvl;
     }
 
@@ -51,12 +51,12 @@ public class ClassClassRequirement implements Serializable {
         this.requiredClass = requiredClass;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
     public int getRequiredLvl() {

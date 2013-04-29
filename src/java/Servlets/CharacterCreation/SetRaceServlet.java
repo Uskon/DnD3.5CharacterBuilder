@@ -5,7 +5,7 @@
 package Servlets.CharacterCreation;
 
 import Character.Character;
-import ComponentLists.RaceList;
+import ComponentManager.EM;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Uskon
  */
 public class SetRaceServlet extends HttpServlet {
-    private RaceList rlist = new RaceList();
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -35,7 +35,7 @@ public class SetRaceServlet extends HttpServlet {
         Character c = new Character(charname);
         
         request.setAttribute("char", c);
-        request.setAttribute("rlist", rlist.getRaces());
+        request.setAttribute("rlist", em.getRaces());
         request.getRequestDispatcher("SetRace.jsp").forward(request, response);
     }
 

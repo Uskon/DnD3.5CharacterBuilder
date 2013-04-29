@@ -4,12 +4,10 @@
  */
 package Servlets.additionServlets;
 
-import ComponentLists.RuleSetList;
-import ComponentLists.SkillList;
+import ComponentManager.EM;
 import Components.RuleSet;
 import Components.Skill;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Tarkistaa syötteen ja hoitaa Skillin lisäämistapahtuman.
  * @author Uskon
  */
 public class AddSkillServlet extends HttpServlet {
 
-    private SkillList skillList = new SkillList();
-    private RuleSetList rsetlist = new RuleSetList();
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -38,25 +35,44 @@ public class AddSkillServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        if (session.getAttribute("logged") == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String name = request.getParameter("skillName");
         String ruleset = request.getParameter("rset");
 
+        boolean nameIsCorrect = true;
+        if (!name.matches("[a-zA-Z0-9 _-]+")) {
+            nameIsCorrect = false;
+        }
+
         RuleSet rset = null;
-        for (int n = 0; n < rsetlist.getRuleSets().size(); n++) {
-            if (rsetlist.getRuleSets().get(n).getName().equals(ruleset)) {
-                rset = rsetlist.getRuleSets().get(n);
+        for (int n = 0; n < em.getRuleSets().size(); n++) {
+            if (em.getRuleSets().get(n).getName().equals(ruleset)) {
+                rset = em.getRuleSets().get(n);
             }
         }
 
         boolean doesSkillExist = false;
-        for (int k = 0; k < skillList.getSkills().size(); k++) {
-            if (skillList.getSkills().get(k).getName().equals(name)) {
+        for (int k = 0; k < em.getSkills().size(); k++) {
+            if (em.getSkills().get(k).getName().equals(name) && em.getSkills().get(k).getRuleSet().getName().equals(ruleset)) {
                 doesSkillExist = true;
                 break;
             }
         }
-        if (!doesSkillExist && rset != null && session.getAttribute("logged") != null) {
-            skillList.addSkill(new Skill(name, rset));
+        if (!doesSkillExist && rset != null && session.getAttribute("logged") != null && nameIsCorrect) {
+            em.addToDatabase(new Skill(name, rset));
+            request.setAttribute("inputSuccessful", true);
+        }
+        if (rset == null) {
+            request.setAttribute("badRSetInput", true);
+        }
+        if (doesSkillExist) {
+            request.setAttribute("skillExists", true);
+        }
+        if (!nameIsCorrect) {
+            request.setAttribute("badname", true);
         }
 
         request.getRequestDispatcher("/AddNewSkill").forward(request, response);

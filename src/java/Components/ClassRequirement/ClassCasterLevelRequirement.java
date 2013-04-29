@@ -29,7 +29,7 @@ public class ClassCasterLevelRequirement implements Serializable {
     private Long id;
     @JoinColumn
     @ManyToOne
-    private CClass c;
+    private CClass cclass;
     @JoinColumn
     @ManyToOne
     private CClass requiredClass;
@@ -40,7 +40,7 @@ public class ClassCasterLevelRequirement implements Serializable {
     }
 
     public ClassCasterLevelRequirement(CClass c, CClass requiredClass, int casterLvl) {
-        this.c = c;
+        this.cclass = c;
         this.requiredClass = requiredClass;
         this.casterLvl = casterLvl;
     }
@@ -53,12 +53,12 @@ public class ClassCasterLevelRequirement implements Serializable {
         this.requiredClass = requiredClass;
     }
 
-    public CClass getC() {
-        return c;
+    public CClass getCclass() {
+        return cclass;
     }
 
-    public void setC(CClass c) {
-        this.c = c;
+    public void setCclass(CClass c) {
+        this.cclass = c;
     }
 
     public int getCasterLvl() {

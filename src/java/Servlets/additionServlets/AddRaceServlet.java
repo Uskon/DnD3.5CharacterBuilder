@@ -4,13 +4,10 @@
  */
 package Servlets.additionServlets;
 
+import ComponentManager.EM;
 import Components.Race;
-import ComponentLists.RaceList;
-import ComponentLists.RuleSetList;
 import Components.RuleSet;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,12 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Tarkistaa syötteen ja hoitaa Racen lisäämistapahtuman.
  * @author Uskon
  */
 public class AddRaceServlet extends HttpServlet {
-    private RaceList raceList = new RaceList();
-    private RuleSetList rsetlist = new RuleSetList();
+
+    private EM em = new EM();
 
     /**
      * Processes requests for both HTTP
@@ -38,27 +35,64 @@ public class AddRaceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        if (session.getAttribute("logged") == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String raceName = request.getParameter("raceName");
-        String abonus = request.getParameter("abonus");
-        String rdesc = request.getParameter("rdescription");
-        String ruleset = request.getParameter("rset");       
+        String strbonus = request.getParameter("str");
+        String dexbonus = request.getParameter("dex");
+        String conbonus = request.getParameter("con");
+        String intbonus = request.getParameter("int");
+        String wisbonus = request.getParameter("wis");
+        String chabonus = request.getParameter("cha");
+        String ruleset = request.getParameter("rset");
+
+        boolean nameIsCorrect = true;
+        if (!raceName.matches("[a-zA-Z0-9 _-]+")) {
+            nameIsCorrect = false;
+        }
+
         RuleSet rset = null;
-        for (int n = 0; n < rsetlist.getRuleSets().size(); n++) {
-            if (rsetlist.getRuleSets().get(n).getName().equals(ruleset)) {
-                rset = rsetlist.getRuleSets().get(n);
+        for (int n = 0; n < em.getRuleSets().size(); n++) {
+            if (em.getRuleSets().get(n).getName().equals(ruleset)) {
+                rset = em.getRuleSets().get(n);
             }
         }
 
+        boolean correctAttributeBonuses = false;
+        if (strbonus.matches("^[-|+]{0,1}[0-9]{1,2}") && dexbonus.matches("^[-|+]{0,1}[0-9]{1,2}") && conbonus.matches("^[-|+]{0,1}[0-9]{1,2}") && intbonus.matches("^[-|+]{0,1}[0-9]{1,2}") && wisbonus.matches("^[-|+]{0,1}[0-9]{1,2}") && chabonus.matches("^[-|+]{0,1}[0-9]{1,2}")) {
+            correctAttributeBonuses = true;
+        }
+
+
+
         boolean doesRaceExist = false;
-        for (int k = 0; k < raceList.getRaces().size(); k++) {
-            if (raceList.getRaces().get(k).getRaceName().equals(raceName)) {
+        for (int k = 0; k < em.getRaces().size(); k++) {
+            if (em.getRaces().get(k).getRaceName().equals(raceName) && em.getRaces().get(k).getRuleSet().getName().equals(ruleset)) {
                 doesRaceExist = true;
             }
         }
-        if (!doesRaceExist && rset != null && session.getAttribute("logged") != null) {
-            Race race = new Race(raceName, abonus, rdesc, rset);
-            raceList.addRace(race);
+        if (!doesRaceExist && rset != null && session.getAttribute("logged") != null && correctAttributeBonuses && nameIsCorrect) {
+            Race race = new Race(raceName, Integer.parseInt(strbonus), Integer.parseInt(dexbonus), Integer.parseInt(conbonus), Integer.parseInt(intbonus), Integer.parseInt(wisbonus), Integer.parseInt(chabonus), rset);
+            em.addToDatabase(race);
+            request.setAttribute("inputSuccessful", true);
+        } else {
+            request.setAttribute("badInput", true);
         }
+        if (doesRaceExist) {
+            request.setAttribute("raceExists", true);
+        }
+        if (correctAttributeBonuses == false) {
+            request.setAttribute("badAttributeInput", true);
+        }
+        if (rset == null) {
+            request.setAttribute("badRSetInput", true);
+        }
+        if (!nameIsCorrect) {
+            request.setAttribute("badname", true);
+        }
+
 
         request.getRequestDispatcher("/AddNewRace").forward(request, response);
     }
